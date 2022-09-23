@@ -24,6 +24,16 @@ from sd_internal import Request, Response
 
 app = FastAPI()
 
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 model_loaded = False
 model_is_loading = False
 
@@ -62,7 +72,7 @@ app.mount('/media', StaticFiles(directory=os.path.join(SD_UI_DIR, 'media/')), na
 
 @app.get('/')
 def read_root():
-    headers = {"Cache-Control": "no-cache, no-store, must-revalidate", "Pragma": "no-cache", "Expires": "0",'Access-Control-Allow-Origin': '*'}
+    headers = {"Cache-Control": "no-cache, no-store, must-revalidate", "Pragma": "no-cache", "Expires": "0"}
     return FileResponse(os.path.join(SD_UI_DIR, 'index.html'), headers=headers)
 
 @app.get('/ping')
@@ -92,8 +102,6 @@ async def ping():
 @app.post('/image')
 def image(req : ImageRequest):
     from sd_internal import runtime
-
-    headers = {"Cache-Control": "no-cache, no-store, must-revalidate", "Pragma": "no-cache", "Expires": "0",'Access-Control-Allow-Origin': '*'}
     r = Request()
     r.session_id = req.session_id
     r.prompt = req.prompt
