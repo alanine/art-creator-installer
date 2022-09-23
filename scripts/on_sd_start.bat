@@ -56,7 +56,7 @@
     @REM prevent conda from using packages from the user's home directory, to avoid conflicts
     @set PYTHONNOUSERSITE=1
 
-    @call conda env create --prefix env -f environment.yaml || (
+    @call conda env create --prefix env -f art-creator/environment.yaml || (
         @echo. & echo "Error installing the packages necessary for astica Art Creator. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!" & echo.
         pause
         exit /b
@@ -149,7 +149,7 @@
 call WHERE uvicorn > .tmp
 @>nul grep -c "uvicorn" .tmp
 @if "%ERRORLEVEL%" NEQ "0" (
-    @echo. & echo "UI packages not found! Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!" & echo.
+    @echo. & echo "Packages not found! Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!" & echo.
     pause
     exit /b
 )
