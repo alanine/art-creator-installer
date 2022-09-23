@@ -11,7 +11,7 @@
 @if "%ERRORLEVEL%" EQU "0" (
     @echo "astica Art Creator's git repository was already installed. Updating.."
 
-    @cd astica-art-creator
+    @cd art-creator
 
     @call git reset --hard
     @call git pull
@@ -32,7 +32,7 @@
         @exit /b
     )
 
-    @cd astica-art-creator
+    @cd art-creator
     @call git checkout f6cfebffa752ee11a7b07497b8529d5971de916c
 
     @call git apply ..\ui\sd_internal\ddim_callback.patch
@@ -41,7 +41,7 @@
     @cd ..
 )
 
-@cd astica-art-creator
+@cd art-creator
 
 @>nul grep -c "conda_sd_env_created" ..\scripts\install_status.txt
 @if "%ERRORLEVEL%" EQU "0" (
@@ -56,7 +56,7 @@
     @REM prevent conda from using packages from the user's home directory, to avoid conflicts
     @set PYTHONNOUSERSITE=1
 
-    @call conda env create --prefix env -f astica-artwork-creator/art-creator/environment.yaml || (
+    @call conda env create --prefix env -f environment.yaml || (
         @echo. & echo "Error installing the packages necessary for astica Art Creator. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!" & echo.
         pause
         exit /b
@@ -287,7 +287,6 @@ call WHERE uvicorn > .tmp
     )
 )
 
-@cd astica-artwork-creator
 
 set current_dir=%cd%
 echo %current_dir%  
