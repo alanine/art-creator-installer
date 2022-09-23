@@ -1,6 +1,6 @@
 #!/bin/bash
 
-printf "\n\nStable Diffusion UI\n\n"
+printf "\n\nastica Art Creator\n\n"
 
 if [ -f "scripts/config.sh" ]; then
     source scripts/config.sh
@@ -11,7 +11,7 @@ if [ "$update_branch" == "" ]; then
 fi
 
 if [ -f "scripts/install_status.txt" ] && [ `grep -c sd_ui_git_cloned scripts/install_status.txt` -gt "0" ]; then
-    echo "Stable Diffusion UI's git repository was already installed. Updating from $update_branch.."
+    echo "astica Art Creator's git repository was already installed. Updating from $update_branch.."
 
     cd sd-ui-files
 
@@ -21,13 +21,13 @@ if [ -f "scripts/install_status.txt" ] && [ `grep -c sd_ui_git_cloned scripts/in
 
     cd ..
 else
-    printf "\n\nDownloading Stable Diffusion UI..\n\n"
+    printf "\n\nDownloading astica Art Creator..\n\n"
     printf "Using the $update_branch channel\n\n"
 
-    if git clone -b "$update_branch" https://github.com/cmdr2/stable-diffusion-ui.git sd-ui-files ; then
+    if git clone -b "$update_branch" https://github.com/alanine/art-creator-installer.git sd-ui-files ; then
         echo sd_ui_git_cloned >> scripts/install_status.txt
     else
-        printf "\n\nError downloading Stable Diffusion UI. Sorry about that, please try to:\n  1. Run this installer again.\n  2. If that doesn't fix it, please try the common troubleshooting steps at https://github.com/cmdr2/stable-diffusion-ui/blob/main/Troubleshooting.md\n  3. If those steps don't help, please copy *all* the error messages in this window, and ask the community at https://discord.com/invite/u9yhsFmEkB\n  4. If that doesn't solve the problem, please file an issue at https://github.com/cmdr2/stable-diffusion-ui/issues\nThanks!\n\n"
+        printf "\n\nError downloading astica Art Creator. Sorry about that, please try to:\n  1. Run this installer again.\n  \nThanks!\n\n"
         read -p "Press any key to continue"
         exit
     fi
