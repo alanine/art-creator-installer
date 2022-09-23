@@ -71,7 +71,7 @@ try:
     mem_free, mem_total = torch.cuda.mem_get_info(gpu)
     mem_total /= float(10**9)
     if mem_total < 3.0:
-        print("GPUs with less than 3 GB of VRAM are not compatible with Stable Diffusion")
+        print("GPUs with less than 3 GB of VRAM are not compatible with astica Art Creator")
         raise Exception()
 
     has_valid_gpu = True
