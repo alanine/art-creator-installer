@@ -93,6 +93,7 @@ async def ping():
 def image(req : ImageRequest):
     from sd_internal import runtime
 
+    headers = {"Cache-Control": "no-cache, no-store, must-revalidate", "Pragma": "no-cache", "Expires": "0",'Access-Control-Allow-Origin': '*'}
     r = Request()
     r.session_id = req.session_id
     r.prompt = req.prompt
