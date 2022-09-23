@@ -309,7 +309,7 @@ echo %current_dir%
 
 @cd ..
 @set SD_UI_PATH=%cd%\ui
-@cd astica-art-creator
+@cd art-creator
 
 @call python --version
 
