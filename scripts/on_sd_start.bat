@@ -294,10 +294,10 @@ call WHERE uvicorn > .tmp
 
 set current_dir=%cd%
 echo %current_dir%  
-@>nul grep -c "sd_install_complete" scripts\install_status.txt
+@>nul grep -c "sd_install_complete" ..\scripts\install_status.txt
 @if "%ERRORLEVEL%" NEQ "0" (
-    @echo sd_weights_downloaded >> scripts\install_status.txt
-    @echo sd_install_complete >> scripts\install_status.txt
+    @echo sd_weights_downloaded >> ..\scripts\install_status.txt
+    @echo sd_install_complete >> ..\scripts\install_status.txt
 )
 
 set current_dir=%cd%
@@ -306,7 +306,7 @@ echo %current_dir%
 
 @set SD_DIR=%cd%
 
-@cd art-creator-installer\env\lib\site-packages
+@cd env\lib\site-packages
 @set PYTHONPATH=%SD_DIR%;%cd%
 @cd ..\..\..
 @echo PYTHONPATH=%PYTHONPATH%
