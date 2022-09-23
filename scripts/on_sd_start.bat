@@ -44,6 +44,10 @@
 @cd art-creator
 
 @>nul grep -c "conda_sd_env_created" ..\scripts\install_status.txt
+
+set current_dir=%cd%
+echo %current_dir%  
+
 @if "%ERRORLEVEL%" EQU "0" (
     @echo "Packages necessary for astica Art Creator were already installed"
 
