@@ -287,14 +287,14 @@ call WHERE uvicorn > .tmp
     )
 )
 
-
+@cd astica-artwork-creator
 
 set current_dir=%cd%
 echo %current_dir%  
 @>nul grep -c "sd_install_complete" scripts\install_status.txt
 @if "%ERRORLEVEL%" NEQ "0" (
-    @echo sd_weights_downloaded >> ../../scripts\install_status.txt
-    @echo sd_install_complete >> ../../scripts\install_status.txt
+    @echo sd_weights_downloaded >> scripts\install_status.txt
+    @echo sd_install_complete >> scripts\install_status.txt
 )
 
 set current_dir=%cd%
