@@ -399,17 +399,9 @@
 <div id="container">
     <div id="top-nav">
         <div id="logo">
-            <h1>Stable Diffusion UI <small>v2.16 <span id="updateBranchLabel"></span></small></h1>
+            <h1>Art Creator UI <small>v0.9 <span id="updateBranchLabel"></span></small></h1>
         </div>
         <ul id="top-nav-items">
-            <li class="dropdown">
-                <span><i class="fa fa-comments icon"></i> Help & Community</span>
-                <ul id="community-links" class="dropdown-content">
-                    <li><a href="https://github.com/cmdr2/stable-diffusion-ui/blob/main/Troubleshooting.md" target="_blank"><i class="fa-solid fa-circle-question fa-fw"></i> Usual problems and solutions</a></li>
-                    <li><a href="https://discord.com/invite/u9yhsFmEkB" target="_blank"><i class="fa-brands fa-discord fa-fw"></i> Discord user community</a></li>
-                    <li><a href="https://github.com/cmdr2/stable-diffusion-ui" target="_blank"><i class="fa-brands fa-github fa-fw"></i> Source code on GitHub</a></li>
-                </ul>
-            </li>
             <li class="dropdown">
                 <span><i class="fa fa-gear icon"></i> Settings</span>
                 <div id="system-settings" class="panel-box settings-box dropdown-content">
@@ -423,7 +415,7 @@
                         <li><input id="use_full_precision" name="use_full_precision" type="checkbox"> <label for="use_full_precision">Use full precision <small>(for GPU-only. warning: this will consume more VRAM)</small></label></li>
                         <!-- <li><input id="allow_nsfw" name="allow_nsfw" type="checkbox"> <label for="allow_nsfw">Allow NSFW Content (You confirm you are above 18 years of age)</label></li> -->
                         <br/>
-                        <li><input id="use_beta_channel" name="use_beta_channel" type="checkbox"> <label for="use_beta_channel">🔥Beta channel. Get the latest features immediately (but could be less stable). Please restart the program after changing this.</label></li>
+                        <li><input id="use_beta_channel" name="use_beta_channel" type="checkbox"> <label for="use_beta_channel">ðŸ”¥Beta channel. Get the latest features immediately (but could be less stable). Please restart the program after changing this.</label></li>
                     </ul>
                 </div>
             </li>
@@ -433,7 +425,7 @@
     <div class="flex-container">
         <div id="editor" class="col-fixed-10">
             <div id="server-status">
-                <div id="server-status-color">●</div>
+                <div id="server-status-color">â—</div>
                 <span id="server-status-msg">Stable Diffusion is starting..</span>
             </div>
             <div id="editor-inputs">
@@ -576,11 +568,9 @@
     <div class="line-separator">&nbsp;</div>
 
     <div id="footer" class="panel-box">
-        <p>If you found this project useful and want to help keep it alive, please <a href="https://ko-fi.com/cmdr2_stablediffusion_ui" target="_blank"><img src="media/kofi.png" id="coffeeButton"></a> to help cover the cost of development and maintenance! Thank you for your support!</p>
-        <p>Please feel free to join the <a href="https://discord.com/invite/u9yhsFmEkB" target="_blank">discord community</a> or <a href="https://github.com/cmdr2/stable-diffusion-ui/issues" target="_blank">file an issue</a> if you have any problems or suggestions in using this interface.</p>
-        <div id="footer-legal">
+         <div id="footer-legal">
             <p><b>Disclaimer:</b> The authors of this project are not responsible for any content generated using this interface.</p>
-            <p>This license of this software forbids you from sharing any content that violates any laws, produce any harm to a person, disseminate any personal information that would be meant for harm, <br/>spread misinformation and target vulnerable groups. For the full list of restrictions please read <a href="https://github.com/cmdr2/stable-diffusion-ui/blob/main/LICENSE" target="_blank">the license</a>.</p>
+            <p>This license of this software forbids you from sharing any content that violates any laws, produce any harm to a person, disseminate any personal information that would be meant for harm, <br/>spread misinformation and target vulnerable groups. For the full list of restrictions please read <a href="https://artificialdesign.org/terms-conditions/" target="_blank">the license</a>.</p>
             <p>By using this software, you consent to the terms and conditions of the license.</p>
         </div>
     </div>
@@ -977,7 +967,7 @@ async function doMakeImage(reqBody, batchCount) {
         }
     } catch (e) {
         console.log('request error', e)
-        logError('Stable Diffusion had an error. Please check the logs in the command-line window. <br/><br/>' + e + '<br/><pre>' + e.stack + '</pre>', res)
+        logError('Art Creator had an error. Please check the logs in the command-line window. <br/><br/>' + e + '<br/><pre>' + e.stack + '</pre>', res)
         setStatus('request', 'error', 'error')
         progressBar.style.display = 'none'
         res = undefined
