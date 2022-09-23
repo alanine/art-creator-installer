@@ -289,17 +289,21 @@ call WHERE uvicorn > .tmp
 
 
 
-@>nul grep -c "sd_install_complete" ..\scripts\install_status.txt
+set current_dir=%cd%
+echo %current_dir%  
+@>nul grep -c "sd_install_complete" scripts\install_status.txt
 @if "%ERRORLEVEL%" NEQ "0" (
-    @echo sd_weights_downloaded >> ..\scripts\install_status.txt
-    @echo sd_install_complete >> ..\scripts\install_status.txt
+    @echo sd_weights_downloaded >> ../../scripts\install_status.txt
+    @echo sd_install_complete >> ../../scripts\install_status.txt
 )
 
+set current_dir=%cd%
+echo %current_dir%  
 @echo. & echo "astica Art Creator is now ready!" & echo.
 
 @set SD_DIR=%cd%
 
-@cd env\lib\site-packages
+@cd art-creator-installer\env\lib\site-packages
 @set PYTHONPATH=%SD_DIR%;%cd%
 @cd ..\..\..
 @echo PYTHONPATH=%PYTHONPATH%
