@@ -62,7 +62,7 @@ app.mount('/media', StaticFiles(directory=os.path.join(SD_UI_DIR, 'media/')), na
 
 @app.get('/')
 def read_root():
-    headers = {"Cache-Control": "no-cache, no-store, must-revalidate", "Pragma": "no-cache", "Expires": "0",'Access-Control-Allow-Origin':, '*'}
+    headers = {"Cache-Control": "no-cache, no-store, must-revalidate", "Pragma": "no-cache", "Expires": "0",'Access-Control-Allow-Origin': '*'}
     return FileResponse(os.path.join(SD_UI_DIR, 'index.html'), headers=headers)
 
 @app.get('/ping')
