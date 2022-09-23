@@ -12,7 +12,7 @@ sys.path.append(os.path.dirname(SD_UI_DIR))
 
 CONFIG_DIR = os.path.join(SD_UI_DIR, '..', 'scripts')
 
-OUTPUT_DIRNAME = "Stable Diffusion UI" # in the user's home folder
+OUTPUT_DIRNAME = "astica Art Creator" # in the user's home folder
 
 from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
@@ -30,7 +30,6 @@ model_is_loading = False
 modifiers_cache = None
 outpath = os.path.join(os.path.expanduser("~"), OUTPUT_DIRNAME)
 
-# defaults from https://huggingface.co/blog/stable_diffusion
 class ImageRequest(BaseModel):
     session_id: str = "session"
     prompt: str = ""
