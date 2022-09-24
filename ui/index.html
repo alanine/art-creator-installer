@@ -425,7 +425,7 @@
     <div class="flex-container">
         <div id="editor" class="col-fixed-10">
             <div id="server-status">
-                <div id="server-status-color">Status: </div>
+                <div id="server-status-color">Status:</div>
                 <span id="server-status-msg">Art Creator is starting..</span>
             </div>
             <div id="editor-inputs">
@@ -951,12 +951,12 @@ async function doMakeImage(reqBody, batchCount) {
                     msg = res.detail
 
                     if (msg.toLowerCase().includes('out of memory')) {
-                        msg += `<br/><br/>
-                                <b>Suggestions</b>:
-                                <br/>
-                                1. If you have set an initial image, please try reducing its dimension to ${MAX_INIT_IMAGE_DIMENSION}x${MAX_INIT_IMAGE_DIMENSION} or smaller.<br/>
-                                2. Try disabling the '<em>Turbo mode</em>' under '<em>Advanced Settings</em>'.<br/>
-                                3. Try generating a smaller image.<br/>`
+                        msg += '<br/><br/>'
+						msg += '<b>Suggestions</b>:'
+						msg += ' <br/>
+						msg += '1. If you have set an initial image, please try reducing its dimension to ${MAX_INIT_IMAGE_DIMENSION}x${MAX_INIT_IMAGE_DIMENSION} or smaller.<br/>';
+						msg += '2. Try disabling the \'<em>Turbo mode</em>\' under \'<em>Advanced Settings</em>\'.<br/>';
+						msg += '3. Try generating a smaller image.<br/>';
                     }
                 } else {
                     msg = res
