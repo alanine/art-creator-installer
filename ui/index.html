@@ -425,8 +425,8 @@
     <div class="flex-container">
         <div id="editor" class="col-fixed-10">
             <div id="server-status">
-                <div id="server-status-color">â—</div>
-                <span id="server-status-msg">Stable Diffusion is starting..</span>
+                <div id="server-status-color">Status: </div>
+                <span id="server-status-msg">Art Creator is starting..</span>
             </div>
             <div id="editor-inputs">
                 <div id="editor-inputs-prompt" class="row">
@@ -777,12 +777,12 @@ function setStatus(statusType, msg, msgType) {
         // msg = '<span style="color: red">' + msg + '<span>'
         serverStatusColor.style.color = 'red'
         serverStatusMsg.style.color = 'red'
-        serverStatusMsg.innerHTML = 'Stable Diffusion has stopped'
+        serverStatusMsg.innerHTML = 'astica Art Creator has stopped'
     } else if (msgType == 'success') {
         // msg = '<span style="color: green">' + msg + '<span>'
         serverStatusColor.style.color = 'green'
         serverStatusMsg.style.color = 'green'
-        serverStatusMsg.innerHTML = 'Stable Diffusion is ready'
+        serverStatusMsg.innerHTML = 'astica Art Creator is ready'
         serverStatus = 'online'
     }
 }
@@ -927,7 +927,7 @@ async function doMakeImage(reqBody, batchCount) {
 
                 prevTime = t
             } catch (e) {
-                logError('Stable Diffusion had an error. Please check the logs in the command-line window.', res)
+                logError('astica Art Creator had an error. Please check the logs in the command-line window.', res)
                 res = undefined
                 throw e
             }
@@ -935,9 +935,9 @@ async function doMakeImage(reqBody, batchCount) {
 
         if (res.status != 200) {
             if (serverStatus === 'online') {
-                logError('Stable Diffusion had an error: ' + await res.text(), res)
+                logError('Art Creator had an error: ' + await res.text(), res)
             } else {
-                logError("Stable Diffusion is still starting up, please wait. If this goes on beyond a few minutes, Stable Diffusion has probably crashed. Please check the error message in the command-line window.", res)
+                logError("astica Art Creator is still starting up, please wait. If this goes on beyond a few minutes, Art Creator has probably crashed. Please check the error message in the command-line window.", res)
             }
             res = undefined
             progressBar.style.display = 'none'
