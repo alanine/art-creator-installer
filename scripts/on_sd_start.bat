@@ -1,5 +1,6 @@
 @echo off
 
+title astica Art Creator 0.9 & echo.
 @copy sd-ui-files\scripts\on_env_start.bat scripts\ /Y
 
 @REM Caution, this file will make your eyes and brain bleed. It's such an unholy mess.
