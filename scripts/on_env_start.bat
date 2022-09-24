@@ -18,6 +18,8 @@ echo.
 echo. 
 echo "You are about to install the astica.org Art Creator"
 echo. & echo "Disk space required: 19.2GB"
+echo. & echo "This may take 10 - 30 minutes depending on network speed."
+echo. & echo "NOTE: Process stuck? Tap enter."
 echo. 
 echo. 
 echo. 
