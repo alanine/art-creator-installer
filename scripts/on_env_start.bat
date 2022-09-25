@@ -2,6 +2,7 @@
 
 title astica Art Creator 0.9 & echo.
 @echo. & echo "astica Art Creator v0.9" & echo.
+@echo working >> scripts\install_status.txt
 
 @cd ..
 
