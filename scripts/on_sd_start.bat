@@ -3,6 +3,8 @@
 title astica Art Creator 0.9 & echo.
 @copy sd-ui-files\scripts\on_env_start.bat scripts\ /Y
 
+@echo working >> scripts\install_status.txt
+
 @REM Caution, this file will make your eyes and brain bleed. It's such an unholy mess.
 @REM Note to self: Please rewrite this in Python. For the sake of your own sanity.
 
