@@ -229,4 +229,4 @@ class HealthCheckLogFilter(logging.Filter):
 logging.getLogger('uvicorn.access').addFilter(HealthCheckLogFilter())
 
 # start the browser ui
-import webbrowser; webbrowser.open('http://localhost:9000')
+#import webbrowser; webbrowser.open('http://localhost:9000')
