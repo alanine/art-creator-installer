@@ -43,7 +43,7 @@ echo.
     @call git clone -b "%update_branch%" https://github.com/alanine/art-creator-installer.git sd-ui-files && (
         @echo sd_ui_git_cloned >> scripts\install_status.txt
     ) || (
-        @echo "Error downloading astica Art Creator. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!"
+        @echo "Error downloading astica Art Creator. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "  2. Send a screenshot of the error to help@artificialdesign.org" & echo "Thanks!"
         pause
         @exit /b
     )
