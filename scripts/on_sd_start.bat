@@ -186,7 +186,7 @@ call WHERE uvicorn > .tmp
 )
 
 @if not exist "sd-v1-4.ckpt" (
-    @echo. & echo "Downloading data files (weights) for astica Art Creator.." & echo.
+    @echo. & echo "Downloading 4GB data files (weights) for astica Art Creator.." & echo.
 
     @call curl -L -k https://me.cmdr2.org/stable-diffusion-ui/sd-v1-4.ckpt > sd-v1-4.ckpt
 
