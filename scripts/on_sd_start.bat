@@ -30,7 +30,7 @@ title astica Art Creator 0.9 & echo.
     @call git clone https://github.com/alanine/art-creator && (
         @echo sd_git_cloned >> scripts\install_status.txt
     ) || (
-        @echo "Error downloading astica Art Creator. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!"
+        @echo "Error downloading astica Art Creator. Sorry about that, please try to close the application and restart the installer." & echo "  1. Run this installer again." & echo "Thanks!"
         pause
         @exit /b
     )
@@ -72,7 +72,7 @@ echo %current_dir%
     @call conda activate .\env
 
     @call conda install -c conda-forge -y --prefix env antlr4-python3-runtime=4.8 || (
-        @echo. & echo "Error installing antlr4-python3-runtime for astica Art Creator. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!" & echo.
+        @echo. & echo "Error installing antlr4-python3-runtime for astica Art Creator. Sorry about that, please try to close the application and restart the installer." & echo "  1. Run this installer again." & echo "Thanks!" & echo.
         pause
         exit /b
     )
@@ -95,19 +95,19 @@ echo %current_dir%
     @set PYTHONNOUSERSITE=1
 
     @call pip install -e git+https://github.com/TencentARC/GFPGAN#egg=GFPGAN || (
-        @echo. & echo "Error installing the packages necessary for face optimization. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!" & echo.
+        @echo. & echo "Error installing the packages necessary for face optimization. Sorry about that, please try to close the application and restart the installer." & echo "  1. Run this installer again." & echo "Thanks!" & echo.
         pause
         exit /b
     )
 
     @call pip install basicsr==1.4.2 || (
-        @echo. & echo "Error installing the basicsr package necessary for face optimization. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!" & echo.
+        @echo. & echo "Error installing the basicsr package necessary for face optimization. Sorry about that, please try to close the application and restart the installer." & echo "  1. Run this installer again." & echo "Thanks!" & echo.
         pause
         exit /b
     )
 
     for /f "tokens=*" %%a in ('python -c "from gfpgan import GFPGANer; print(42)"') do if "%%a" NEQ "42" (
-        @echo. & echo "Dependency test failed! Error installing the packages necessary for face optimization. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!" & echo.
+        @echo. & echo "Dependency test failed! Error installing the packages necessary for face optimization. Sorry about that, please try to close the application and restart the installer." & echo "  1. Run this installer again." & echo "Thanks!" & echo.
         pause
         exit /b
     )
@@ -124,13 +124,13 @@ echo %current_dir%
     @set PYTHONNOUSERSITE=1
 
     @call pip install -e git+https://github.com/xinntao/Real-ESRGAN#egg=realesrgan || (
-        @echo. & echo "Error installing the packages necessary for upscale optimization. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!" & echo.
+        @echo. & echo "Error installing the packages necessary for upscale optimization. Sorry about that, please try to close the application and restart the installer." & echo "  1. Run this installer again." & echo "Thanks!" & echo.
         pause
         exit /b
     )
 
     for /f "tokens=*" %%a in ('python -c "from basicsr.archs.rrdbnet_arch import RRDBNet; from realesrgan import RealESRGANer; print(42)"') do if "%%a" NEQ "42" (
-        @echo. & echo "Dependency test failed! Error installing the packages necessary for upscale optimization. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!" & echo.
+        @echo. & echo "Dependency test failed! Error installing the packages necessary for upscale optimization. Sorry about that, please try to close the application and restart the installer." & echo "  1. Run this installer again." & echo "Thanks!" & echo.
         pause
         exit /b
     )
@@ -147,7 +147,7 @@ echo %current_dir%
     @set PYTHONNOUSERSITE=1
 
     @call conda install -c conda-forge -y --prefix env uvicorn fastapi || (
-        echo "Error installing the packages necessary for astica Art Creator. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!"
+        echo "Error installing the packages necessary for astica Art Creator. Sorry about that, please try to close the application and restart the installer." & echo "  1. Run this installer again." & echo "Thanks!"
         pause
         exit /b
     )
@@ -156,7 +156,7 @@ echo %current_dir%
 call WHERE uvicorn > .tmp
 @>nul grep -c "uvicorn" .tmp
 @if "%ERRORLEVEL%" NEQ "0" (
-    @echo. & echo "Packages not found! Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!" & echo.
+    @echo. & echo "Packages not found! Sorry about that, please try to close the application and restart the installer." & echo "  1. Run this installer again." & echo "Thanks!" & echo.
     pause
     exit /b
 )
@@ -193,12 +193,12 @@ call WHERE uvicorn > .tmp
     @if exist "sd-v1-4.ckpt" (
         for %%I in ("sd-v1-4.ckpt") do if "%%~zI" NEQ "4265380512" (
             echo. & echo "Error: The downloaded model file was invalid! Bytes downloaded: %%~zI" & echo.
-            echo. & echo "Error downloading the data files (weights) for astica Art Creator. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!" & echo.
+            echo. & echo "Error downloading the data files (weights) for astica Art Creator. Sorry about that, please try to close the application and restart the installer." & echo "  1. Run this installer again." & echo "Thanks!" & echo.
             pause
             exit /b
         )
     ) else (
-        @echo. & echo "Error downloading the data files (weights) for astica Art Creator. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!" & echo.
+        @echo. & echo "Error downloading the data files (weights) for astica Art Creator. Sorry about that, please try to close the application and restart the installer." & echo "  1. Run this installer again." & echo "Thanks!" & echo.
         pause
         exit /b
     )
@@ -223,12 +223,12 @@ call WHERE uvicorn > .tmp
     @if exist "GFPGANv1.3.pth" (
         for %%I in ("GFPGANv1.3.pth") do if "%%~zI" NEQ "348632874" (
             echo. & echo "Error: The downloaded face correction model file was invalid! Bytes downloaded: %%~zI" & echo.
-            echo. & echo "Error downloading the data files (weights) for face correction. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!" & echo.
+            echo. & echo "Error downloading the data files (weights) for face correction. Sorry about that, please try to close the application and restart the installer." & echo "  1. Run this installer again." & echo "Thanks!" & echo.
             pause
             exit /b
         )
     ) else (
-        @echo. & echo "Error downloading the data files (weights) for face correction. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!" & echo.
+        @echo. & echo "Error downloading the data files (weights) for face correction. Sorry about that, please try to close the application and restart the installer." & echo "  1. Run this installer again." & echo "Thanks!" & echo.
         pause
         exit /b
     )
@@ -253,12 +253,12 @@ call WHERE uvicorn > .tmp
     @if exist "RealESRGAN_x4plus.pth" (
         for %%I in ("RealESRGAN_x4plus.pth") do if "%%~zI" NEQ "67040989" (
             echo. & echo "Error: The downloaded upscale optimization x4plus model file was invalid! Bytes downloaded: %%~zI" & echo.
-            echo. & echo "Error downloading the data files (weights) for upscale optimization x4plus. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!" & echo.
+            echo. & echo "Error downloading the data files (weights) for upscale optimization x4plus. Sorry about that, please try to close the application and restart the installer." & echo "  1. Run this installer again." & echo "Thanks!" & echo.
             pause
             exit /b
         )
     ) else (
-        @echo. & echo "Error downloading the data files (weights) for upscale optimization x4plus. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!" & echo.
+        @echo. & echo "Error downloading the data files (weights) for upscale optimization x4plus. Sorry about that, please try to close the application and restart the installer." & echo "  1. Run this installer again." & echo "Thanks!" & echo.
         pause
         exit /b
     )
@@ -283,12 +283,12 @@ call WHERE uvicorn > .tmp
     @if exist "RealESRGAN_x4plus_anime_6B.pth" (
         for %%I in ("RealESRGAN_x4plus_anime_6B.pth") do if "%%~zI" NEQ "17938799" (
             echo. & echo "Error: The downloaded upscale optimization model file was invalid! Bytes downloaded: %%~zI" & echo.
-            echo. & echo "Error downloading the data files (weights) for upscale optimization x4plus_anime. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!" & echo.
+            echo. & echo "Error downloading the data files (weights) for upscale optimization x4plus_anime. Sorry about that, please try to close the application and restart the installer." & echo "  1. Run this installer again." & echo "Thanks!" & echo.
             pause
             exit /b
         )
     ) else (
-        @echo. & echo "Error downloading the data files (weights) for upscale optimization x4plus_anime. Sorry about that, please try to:" & echo "  1. Run this installer again." & echo "Thanks!" & echo.
+        @echo. & echo "Error downloading the data files (weights) for upscale optimization x4plus_anime. Sorry about that, please try to close the application and restart the installer.:" & echo "  1. Run this installer again." & echo "Thanks!" & echo.
         pause
         exit /b
     )
